@@ -1,4 +1,7 @@
 package com.alisson.service_management.repository;
 
-public class ClientRepository {
+import com.alisson.service_management.model.Client;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClientRepository extends JpaRepository<Client, Long> {
 }
