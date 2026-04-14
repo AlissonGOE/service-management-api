@@ -44,6 +44,7 @@ The project follows a layered architecture:
 
 ## 📁 Project Structure
 
+```
 src/main/java/com/alisson/servicemanagement/
 ├── controller
 ├── service
@@ -54,7 +55,7 @@ src/main/java/com/alisson/servicemanagement/
 ├── enums
 ├── exception
 └── config
-
+```
 
 ---
 
@@ -72,11 +73,44 @@ src/main/java/com/alisson/servicemanagement/
 
 ## 📜 Business Rules
 
-- A service starts with status IN_PROGRESS
+- A service starts with status RECEIVED
 - A service can only be completed after payment confirmation
 - A client can have multiple services
 - A service can contain multiple items
 - Service status must follow defined workflow
+
+---
+
+## 📚 Enums / Domain Constants
+
+ServiceStatus
+
+The service order follows a defined lifecycle to ensure proper tracking and business rule validation.
+
+- RECEIVED → Service order has been created and the item was received from the client
+- IN_PROGRESS → Service is currently being executed
+- WAITING_PARTS → Service is temporarily paused waiting for parts or materials
+- COMPLETED → Service execution has finished successfully
+- DELIVERED → Item/service has been delivered back to the client
+- CANCELLED → Service order was cancelled
+
+Notes:
+- A service always starts with status RECEIVED
+- COMPLETED does not mean the item was delivered yet
+- DELIVERED represents the final step of the process
+
+ServiceType
+
+Defines the type of service being performed in a service order.
+
+- REPAIR → Service related to fixing or correcting a defect
+- QUOTE → Service performed for cost estimation or evaluation
+- WARRANTY → Service covered under warranty conditions
+- CUSTOMIZATION → Service focused on modifying or personalizing the item
+
+Notes:
+- Service type helps define the purpose of the service order
+- It can influence business rules and workflow
 
 ---
 
