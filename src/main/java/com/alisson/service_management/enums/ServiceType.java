@@ -1,4 +1,8 @@
 package com.alisson.service_management.enums;
 
-public class ServiceType {
+public enum ServiceType {
+    REPAIR,
+    QUOTE,
+    WARRANTY,
+    CUSTOMIZATION;
 }

@@ -1,4 +1,10 @@
 package com.alisson.service_management.enums;
 
-public class ServiceStatus {
+public enum ServiceStatus {
+    RECEIVED,
+    IN_PROGRESS,
+    WAITING_PARTS,
+    COMPLETED,
+    DELIVERED,
+    CANCELLED;
 }
