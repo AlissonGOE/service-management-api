@@ -1,5 +1,6 @@
 package com.alisson.service_management.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "client")
 public class Client {
 
     @Id
@@ -27,7 +27,7 @@ public class Client {
     @Column(unique = true)
     private String phone;
 
-    @OneToMany
-    @JoinColumn(name = "client_id")
+    @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<ServiceOrder> services;
 }
