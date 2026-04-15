@@ -1,0 +1,1 @@
+ALTER TABLE tb_service_order DROP COLUMN service_type;
