@@ -1,7 +1,7 @@
 package com.alisson.service_management.model;
 
+import com.alisson.service_management.enums.ServicePriority;
 import com.alisson.service_management.enums.ServiceStatus;
-import com.alisson.service_management.enums.ServiceType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -33,8 +33,8 @@ public class ServiceOrder {
     @Column(name = "status")
     private ServiceStatus status;
 
-    @Column(name = "service_type")
-    private ServiceType serviceType;
+    @Column(name = "service_priority")
+    private ServicePriority servicePriority;
 
     @Column(name = "entry_date")
     private LocalDate entryDate;
