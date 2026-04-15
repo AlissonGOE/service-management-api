@@ -1,5 +1,6 @@
 package com.alisson.service_management.model;
 
+import com.alisson.service_management.enums.ServiceType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,9 @@ public class Item {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "service_type")
+    private ServiceType serviceType;
 
     @ManyToOne
     @JoinColumn(name = "service_id")
