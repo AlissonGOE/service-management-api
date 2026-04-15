@@ -6,5 +6,6 @@ public enum ServiceStatus {
     WAITING_PARTS,
     COMPLETED,
     DELIVERED,
-    CANCELLED;
+    CANCELLED,
+    WAITING_EXECUTION;
 }
