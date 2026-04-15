@@ -93,6 +93,7 @@ The service order follows a defined lifecycle to ensure proper tracking and busi
 - COMPLETED → Service execution has finished successfully
 - DELIVERED → Item/service has been delivered back to the client
 - CANCELLED → Service order was cancelled
+- WAITING_EXECUTION -> The service is awaiting execution in the main queue
 
 Notes:
 - A service always starts with status RECEIVED
@@ -111,6 +112,21 @@ Defines the type of service being performed in a service order.
 Notes:
 - Service type helps define the purpose of the service order
 - It can influence business rules and workflow
+
+ServicePriority
+
+Defines the type of priority in the service order.
+
+- LOW -> Low priority (can wait)
+- NORMAL -> Standard priority
+- HIGH -> Needs faster attention
+- URGENT -> Immediate service
+
+Notes:
+- Priority helps define the order in which services should be handled
+- URGENT services should be prioritized over all others
+- LOW priority services can be scheduled for later execution
+- Priority can be used to implement SLA (Service Level Agreement) rules
 
 ---
 
