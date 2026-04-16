@@ -1,4 +1,4 @@
 package com.alisson.service_management.controller;
 
-public class ServiceController {
+public class ServiceOrderController {
 }

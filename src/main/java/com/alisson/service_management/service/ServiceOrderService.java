@@ -1,4 +1,4 @@
 package com.alisson.service_management.service;
 
-public class ServiceService {
+public class ServiceOrderService {
 }
