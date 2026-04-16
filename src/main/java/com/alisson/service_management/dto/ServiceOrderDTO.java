@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ServiceDTO {
+public class ServiceOrderDTO {
 
     private Long id;
     private String description;
@@ -24,6 +24,7 @@ public class ServiceDTO {
     private ServicePriority servicePriority;
     private LocalDate entryDate;
     private LocalDate exitDate;
-    private Client client;
-    private List<Item> items;
+
+    private ClientDTO client;
+    private List<ItemDTO> items;
 }

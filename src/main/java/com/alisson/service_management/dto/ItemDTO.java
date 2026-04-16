@@ -15,5 +15,5 @@ public class ItemDTO {
     private String name;
     private String description;
     private ServiceType serviceType;
-    private ServiceOrder service;
+    private Long serviceId;
 }
