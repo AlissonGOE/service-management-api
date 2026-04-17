@@ -2,9 +2,11 @@ package com.alisson.service_management.mapper;
 
 import com.alisson.service_management.dto.ClientDTO;
 import com.alisson.service_management.model.Client;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
 public class ClientMapper {
 
     private final ServiceOrderMapper serviceOrderMapper = new ServiceOrderMapper();
