@@ -23,7 +23,7 @@ public class ClientController {
     }
 
     // Create
-    @PostMapping("/create")
+    @PostMapping
     @Operation(summary = "Create a new customer.", description = "Route to create a new client and insert it into the database.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Client created successfully."),
@@ -36,7 +36,7 @@ public class ClientController {
     }
 
     // Read
-    @GetMapping("/list")
+    @GetMapping
     @Operation(summary = "List all clients", description = "Route to list all clients")
     public ResponseEntity<List<ClientDTO>> findAll() {
         List<ClientDTO> clients = clientService.findAll();
@@ -44,7 +44,7 @@ public class ClientController {
     }
 
     // Read by Id
-    @GetMapping("/list/id/{id}")
+    @GetMapping("/{id}")
     @Operation(summary = "List the client by (Id)", description = "Route to list the client by (Id).")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Client found successfully."),
@@ -64,7 +64,7 @@ public class ClientController {
     }
 
     // Read by Name
-    @GetMapping("/list/name/{name}")
+    @GetMapping("/name/{name}")
     @Operation(summary = "List the client by (Name)", description = "Route to list the client by (Name).")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Client found successfully."),
@@ -84,7 +84,7 @@ public class ClientController {
     }
 
     // Update by Id
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     @Operation(summary = "Update the client by (Id)", description = "Route to update the client by (Id).")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Client updated successfully"),
@@ -94,7 +94,7 @@ public class ClientController {
             @Parameter(description = "The user enters the (Id) in the request body.")
             @PathVariable Long id,
             @Parameter(description = "The user enters the (Data) in the request body.")
-            @PathVariable ClientDTO updatedClient) {
+            @RequestBody ClientDTO updatedClient) {
         ClientDTO client = clientService.updateById(id, updatedClient);
         if (client != null) {
             return ResponseEntity.ok(client);
@@ -105,7 +105,7 @@ public class ClientController {
     }
 
     // Delete by Id
-    @DeleteMapping("/delet/{id}")
+    @DeleteMapping("/{id}")
     @Operation(summary = "Delete the client by (Id)", description = "Route to delete the client by (Id).")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Client deleted successfully."),
