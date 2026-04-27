@@ -1,6 +1,7 @@
 package com.alisson.service_management.mapper;
 
 import com.alisson.service_management.dto.ClientDTO;
+import com.alisson.service_management.dto.ClientSummaryDTO;
 import com.alisson.service_management.model.Client;
 import org.springframework.stereotype.Component;
 
@@ -47,6 +48,17 @@ public class ClientMapper {
         }
 
         return clientDTO;
+    }
+
+    public ClientSummaryDTO mapToSummary(Client client) {
+
+        ClientSummaryDTO clientSummaryDTO = new ClientSummaryDTO();
+
+        clientSummaryDTO.setId(client.getId());
+        clientSummaryDTO.setName(client.getName());
+        clientSummaryDTO.setPhone(client.getPhone());
+
+        return clientSummaryDTO;
     }
 
 }
