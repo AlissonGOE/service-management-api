@@ -2,8 +2,6 @@ package com.alisson.service_management.dto;
 
 import com.alisson.service_management.enums.ServicePriority;
 import com.alisson.service_management.enums.ServiceStatus;
-import com.alisson.service_management.model.Client;
-import com.alisson.service_management.model.Item;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +23,6 @@ public class ServiceOrderDTO {
     private LocalDate entryDate;
     private LocalDate exitDate;
 
-    private ClientDTO client;
+    private ClientSummaryDTO client;
     private List<ItemDTO> items;
 }
