@@ -2,9 +2,11 @@ package com.alisson.service_management.mapper;
 
 import com.alisson.service_management.dto.ServiceOrderDTO;
 import com.alisson.service_management.model.ServiceOrder;
+import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
+@Component
 public class ServiceOrderMapper {
 
     private final ItemMapper itemMapper = new ItemMapper();
