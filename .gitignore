@@ -20,7 +20,7 @@ target/
 *.ipr
 *.env
 *data/
-bruno/environments/local.bru
+bruno/environments/local.yml
 
 ### NetBeans ###
 /nbproject/private/
