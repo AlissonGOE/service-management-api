@@ -1,0 +1,31 @@
+info:
+  name: Update the service order by (Id)
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: http://localhost:8080/service-orders/{{id}}
+  body:
+    type: json
+    data: |-
+      {
+          "description": "Consertar TV LG",
+          "totalValue": 159.99,
+          "status": "RECEIVED",
+          "servicePriority": "LOW",
+          "entryDate": "2026-04-27",
+          "exitDate": "2026-06-27"
+        }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: id
+      value: "65"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,27 @@
+info:
+  name: Update the client by (Id)
+  type: http
+  seq: 2
+
+http:
+  method: PUT
+  url: {{baseUrl}}/clients/{{id}}
+  body:
+    type: json
+    data: |-
+      {
+        "name": "String",
+        "phone": "String"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: id
+      value: "65"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

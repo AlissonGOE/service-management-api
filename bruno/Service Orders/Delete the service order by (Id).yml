@@ -1,0 +1,20 @@
+info:
+  name: Delete the service order by (Id)
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: http://localhost:8080/service-orders/{{id}}
+  auth: inherit
+
+runtime:
+  variables:
+    - name: id
+      value: "97"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

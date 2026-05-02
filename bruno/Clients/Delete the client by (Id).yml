@@ -1,0 +1,20 @@
+info:
+  name: Delete the client by (Id)
+  type: http
+  seq: 2
+
+http:
+  method: DELETE
+  url: {{baseUrl}}/clients/{{id}}
+  auth: inherit
+
+runtime:
+  variables:
+    - name: id
+      value: "34"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

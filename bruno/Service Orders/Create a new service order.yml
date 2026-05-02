@@ -1,0 +1,31 @@
+info:
+  name: Create a new service order
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: {{baseUrl}}/service-orders/{{clientId}}
+  body:
+    type: json
+    data: |-
+      {
+        "description": "Comsertar Celular",
+        "totalValue": 300.97,
+        "status": "RECEIVED",
+        "servicePriority": "HIGH",
+        "entryDate": "2026-05-02",
+        "exitDate": "2026-06-02"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: clientId
+      value: "2"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
