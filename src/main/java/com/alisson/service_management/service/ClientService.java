@@ -52,10 +52,12 @@ public class ClientService {
     public ClientDTO updateById(Long id, ClientDTO clientDTO) {
         Optional<Client> existingClient = clientRepository.findById(id);
         if (existingClient.isPresent()) {
-            Client updatedClient = clientMapper.map(clientDTO);
-            updatedClient.setId(id);
-            Client saveClient = clientRepository.save(updatedClient);
-            return clientMapper.map(saveClient);
+            Client existing = existingClient.get();
+
+            existing.setName(clientDTO.getName());
+            existing.setPhone(clientDTO.getPhone());
+
+            return clientMapper.map(clientRepository.save(existing));
         }
         return null;
     }

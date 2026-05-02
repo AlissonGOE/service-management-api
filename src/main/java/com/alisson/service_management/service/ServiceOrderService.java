@@ -75,10 +75,20 @@ public class ServiceOrderService {
     public ServiceOrderDTO updateById(Long id, ServiceOrderDTO serviceOrderDTO) {
         Optional<ServiceOrder> existingServiceOrder = serviceOrderRepository.findById(id);
         if (existingServiceOrder.isPresent()) {
-            ServiceOrder updatedServiceOrder = serviceOrderMapper.map(serviceOrderDTO);
-            updatedServiceOrder.setId(id);
-            ServiceOrder saveServiceOrder = serviceOrderRepository.save(updatedServiceOrder);
-            return serviceOrderMapper.map(saveServiceOrder);
+            ServiceOrder existing = existingServiceOrder.get();
+
+            existing.setDescription(serviceOrderDTO.getDescription());
+            existing.setTotalValue(serviceOrderDTO.getTotalValue());
+            existing.setStatus(serviceOrderDTO.getStatus());
+            existing.setServicePriority(serviceOrderDTO.getServicePriority());
+            existing.setEntryDate(serviceOrderDTO.getEntryDate());
+            existing.setExitDate(serviceOrderDTO.getExitDate());
+
+            ServiceOrder saved = serviceOrderRepository.save(existing);
+
+            ServiceOrderDTO savedDTO = serviceOrderMapper.map(saved);
+            savedDTO.setClient(clientMapper.mapToSummary(saved.getClient()));
+            return savedDTO;
         }
         return null;
     }
