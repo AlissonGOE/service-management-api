@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("service-orders")
+@RequestMapping("clients/{clientId}/service-orders")
 public class ServiceOrderController {
 
     private final ServiceOrderService serviceOrderService;
@@ -24,7 +24,7 @@ public class ServiceOrderController {
     }
 
     // Create Service order by client
-    @PostMapping("/{clientId}")
+    @PostMapping()
     @Operation(summary = "Create a new service order.", description = "Route to create a new service order and insert into the database.")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Service order created successfully."),
@@ -55,7 +55,7 @@ public class ServiceOrderController {
 
     // List service order per Id
     @GetMapping("/{id}")
-    @Operation(summary = "List the service order by (Id)", description = "Routo tp list service order by (Id).")
+    @Operation(summary = "List the service order by (Id)", description = "Routo to list service order by (Id).")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Service order successfully."),
             @ApiResponse(responseCode = "404", description = "Service order not found.")
