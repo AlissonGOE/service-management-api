@@ -2,7 +2,9 @@ package com.alisson.service_management.mapper;
 
 import com.alisson.service_management.dto.ItemDTO;
 import com.alisson.service_management.model.Item;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ItemMapper {
 
     public Item map(ItemDTO itemDTO) {
